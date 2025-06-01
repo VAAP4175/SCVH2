@@ -1,0 +1,93 @@
+/* Fondo y fuente */
+body {
+    background-color: #f4f6fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor del formulario */
+.contenedor {
+    background: #fff;
+    padding: 30px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 320px; /* antes 400px */
+}
+
+
+/* Título */
+h2 {
+    color: #1e3a8a;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Campos de contraseña */
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border 0.3s;
+}
+
+input[type="password"]:focus {
+    border-color: #2e70c9;
+    outline: none;
+}
+
+/* Botón de enviar */
+input[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #1e3a8a;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #2c5282;
+}
+
+/* Botón de volver */
+.volver {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s;
+}
+
+.volver:hover {
+    background-color: #e5e7eb;
+}

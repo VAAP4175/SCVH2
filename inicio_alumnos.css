@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('imgPH/fondouni.jpg');
+  background-size: cover;
+  background-position: center;
+    
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: rgb(21, 61, 108);
+  color: rgb(212, 219, 225);
+
+}
+
+header h2{
+  align-items: center;
+  justify-content: center;
+}
+footer {
+    position: relative;
+    width: 100%;
+    background-color: rgb(223, 131, 49);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: auto;
+    
+}
+
+        .carousel-container {
+            position: relative;
+            width: 37%;
+            margin: auto;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.137);
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.781);
+            border-radius: 5px;
+        }
+        .table-slide {
+            display: none;
+          
+            padding: 10px;
+            
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            
+        }
+        td{
+            text-align: center;
+            align-items: center;
+            vertical-align: bottom; /* Coloca el contenido en el fondo */
+            
+        }
+        .LIA th{
+            background-color: rgb(0, 0, 153);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            height: 96px;
+        }
+        .LIA td{
+            background-image: url(imgPH/foto3.jpg);
+            background-size: cover; /* Ajusta la imagen para llenar el área */
+           
+            background-repeat: no-repeat;
+            padding-top: 99px;
+            height: 350px;
+        }
+        .LD th{
+            background-color: rgb(219, 219, 219);
+            color: rgb(0, 0, 0);
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            height: 96px;
+        }
+        .LD td{
+            background-image: url(imgPH/foto1.jpg);
+            background-size: cover; /* Ajusta la imagen para llenar el área */
+           
+            background-repeat: no-repeat;
+            height: 350px;
+            padding-top: 99px;
+        }
+        .II th{
+            background-color: rgb(214, 1, 1);
+            color: rgb(255, 255, 255);
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            height: 96px;
+        }
+        .II td{
+            background-image: url(imgPH/foto2.jpg);
+            background-size: cover; /* Ajusta la imagen para llenar el área */
+          
+            background-repeat: no-repeat;
+            height: 350px;
+            padding-top: 99px;
+        }
+        td button{
+            text-align: center;
+            border: 0;
+            border-radius: 2px;
+            background-color: rgb(0, 190, 0);
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            width: 80px;
+            margin-top: auto;
+            margin-bottom: 5px;
+            box-shadow: 0 3px 3px rgb(0, 0, 0);
+        }
+        td button:hover{
+            background-color: green;
+        }
+        main{
+            margin-bottom: 30px; 
+        }
+
+        .dots-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid rgb(255, 255, 255); /* Agrega un borde negro */
+}
+
+.dot.active {
+    background-color: rgb(0, 0, 0); /* Resalta el punto activo */
+    border: 2px solid rgb(255, 255, 255); /* Asegura que el borde negro se mantenga */
+}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reservaciones de Sala de Cómputo</title>
+<style>
+ body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  
+}
+
+footer {
+  background-color: #030059;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  color: #ffffff;
+  
+}
+header p{
+  color: rgb(255, 255, 255);
+}
+main {
+  padding: 1rem;
+}
+
+.calendario table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+.calendario th, .calendario td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.calendario th {
+  background-color: #e0e0e0;
+}
+
+.bloque {
+  background-color: #c0dbb5;
+  transition: background-color 0.3s ease;
+}
+
+.bloque.ocupado {
+  background-color: #ee6969;
+}
+
+#formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#formulario textarea {
+  resize: vertical;
+}
+
+#formulario menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+#formulario button {
+  padding: 0.5rem 1rem;
+}
+
+#botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #003366;
+  border: 1px solid #003366;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#botones button {
+  padding: 10px 20px;
+  background-color: #da790a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#botones button:hover {
+  background-color: #b76e01;
+}
+
+#rango-semana {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+#formulario {
+  padding: 2rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
+}
+
+#formulario::backdrop {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#formulario form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.pasado {
+  background-color: #ffd448; /* amarillo suave */
+  color: #856404;
+  font-weight: bold;
+  text-align: center;
+}
+.bloque {
+  text-align: center;
+}
+
+.disponible {
+  background-color: #b1eebf;
+  color: #48b361;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.ocupado {
+  background-color: #f85765;
+  color: #ffdbde;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pasado {
+  background-color: #fae190;
+  color: #c49c24;
+  font-weight: bold;
+  text-align: center;
+}
+
+.intermedio {
+  background-color: #ececff;
+  color: #7f7f80;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+  </style>
+</head>
+<body>
+  
+    <div id="botones"  style="background-color: #030059;" >
+      <button id="semana-anterior">← Semana anterior</button>
+      <span id="rango-semana"></span>
+      <button id="semana-siguiente">Semana siguiente →</button>
+    </div>
+  
+
+  <main>
+    <section class="calendario">
+      <table>
+        <thead>
+          <tr>
+            <th>Horario</th>
+            <th>Lunes</th>
+            <th>Martes</th>
+            <th>Miércoles</th>
+            <th>Jueves</th>
+            <th>Viernes</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-bloques">
+          <!-- Se genera dinámicamente -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+  const horarios = [
+  { inicio: "07:00", fin: "07:50" },
+  { inicio: "07:50", fin: "08:40" },
+  { inicio: "08:40", fin: "09:30" },
+  { inicio: "09:30", fin: "09:50", tipo: "receso" },
+  { inicio: "09:50", fin: "10:40" },
+  { inicio: "10:40", fin: "11:30" },
+  { inicio: "11:30", fin: "12:20" },
+  { inicio: "12:20", fin: "13:10" },
+  { inicio: "13:10", fin: "13:50", tipo: "intercambio" },
+  { inicio: "13:50", fin: "14:40" },
+  { inicio: "14:40", fin: "15:30" },
+  { inicio: "15:30", fin: "16:20" },
+  { inicio: "16:20", fin: "16:40", tipo: "receso" },
+  { inicio: "16:40", fin: "17:30" },
+  { inicio: "17:30", fin: "18:20" },
+  { inicio: "18:20", fin: "19:10" },
+  { inicio: "19:10", fin: "20:00" }
+];
+
+const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+const tabla = document.getElementById("tabla-bloques");
+const rangoSemana = document.getElementById("rango-semana");
+const btnAnterior = document.getElementById("semana-anterior");
+const btnSiguiente = document.getElementById("semana-siguiente");
+
+let semanaOffset = 0;
+let semanaActual = [];
+
+// ✅ NUEVO: Formato largo en español
+function fechaLargaES(fecha) {
+  return fecha.toLocaleDateString("es-MX", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+}
+function capitalizar(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function siguienteHora(hora) {
+  const [h, m] = hora.split(":").map(Number);
+  const nueva = new Date(0, 0, 0, h, m + 50);
+  return nueva.toTimeString().substring(0, 5);
+}
+
+function obtenerSemana(offset = 0) {
+  const hoy = new Date();
+  const diaActual = hoy.getDay(); // 0 = domingo, 1 = lunes, ...
+  const diasDesdeLunes = diaActual === 0 ? 6 : diaActual - 1;
+  const lunes = new Date(hoy);
+  lunes.setDate(hoy.getDate() - diasDesdeLunes + offset * 7);
+  lunes.setHours(0, 0, 0, 0);
+
+  const semana = [];
+  for (let i = 0; i < 5; i++) {
+    const dia = new Date(lunes);
+    dia.setDate(lunes.getDate() + i);
+    semana.push(dia);
+  }
+  return semana;
+}
+
+function formatearFecha(date) {
+  return date.toISOString().split("T")[0];
+}
+
+function cargarSemana() {
+  semanaActual = obtenerSemana(semanaOffset);
+  const inicio = formatearFecha(semanaActual[0]);
+  const fin = formatearFecha(semanaActual[4]);
+
+  // ✅ NUEVO: Mostrar fechas largas
+  rangoSemana.textContent =
+    `${capitalizar(fechaLargaES(semanaActual[0]))} al ${capitalizar(fechaLargaES(semanaActual[4]))}`;
+
+  tabla.innerHTML = "";
+
+  fetch(`obtener_reservas.php?inicio=${inicio}&fin=${fin}`)
+    .then(res => res.json())
+    .then(data => crearTabla(data));
+}
+
+function crearTabla(reservas) {
+  horarios.forEach(bloque => {
+    const fila = document.createElement("tr");
+    const celdaHora = document.createElement("td");
+    celdaHora.textContent = `${bloque.inicio} - ${bloque.fin}`;
+    fila.appendChild(celdaHora);
+
+    semanaActual.forEach(fecha => {
+      const celda = document.createElement("td");
+      const fechaStr = formatearFecha(fecha);
+
+      if (bloque.tipo === "receso" || bloque.tipo === "intercambio") {
+        celda.textContent = bloque.tipo === "receso" ? "Receso" : "Intercambio";
+        celda.classList.add("intermedio");
+      } else {
+        celda.classList.add("bloque");
+        celda.dataset.fecha = fechaStr;
+        celda.dataset.hora = bloque.inicio;
+
+        const reserva = reservas.find(r => r.fecha === fechaStr && r.hora === bloque.inicio);
+        const ahora = new Date();
+        const fechaHoraBloque = new Date(`${fechaStr}T${bloque.inicio}`);
+
+        if (reserva) {
+          celda.innerHTML = `<strong>${reserva.nombre}</strong><br><small>${reserva.motivo}</small>`;
+          celda.classList.add("ocupado");
+        } else if (fechaHoraBloque < ahora) {
+          celda.textContent = "No Asignado";
+          celda.classList.add("pasado");
+        } else {
+          celda.textContent = "Por Asignar";
+          celda.classList.add("disponible");
+
+          if (typeof ROL_USUARIO !== "undefined" && ROL_USUARIO !== "alumno") {
+            celda.addEventListener("click", () => {
+              bloqueActual = celda;
+              fechaSeleccionada = celda.dataset.fecha;
+              horaSeleccionada = celda.dataset.hora;
+
+              const diaNombre = dias[new Date(fechaSeleccionada).getDay() - 1];
+              infoHorario.textContent = `Reservar: ${diaNombre} ${fechaSeleccionada} ${horaSeleccionada}`;
+
+              nombreInput.value = "";
+              motivoInput.value = "";
+              dialogo.showModal();
+            });
+          }
+        }
+      }
+
+      fila.appendChild(celda);
+    });
+
+    tabla.appendChild(fila);
+  });
+}
+
+btnAnterior.addEventListener("click", () => {
+  semanaOffset--;
+  cargarSemana();
+});
+btnSiguiente.addEventListener("click", () => {
+  semanaOffset++;
+  cargarSemana();
+});
+
+cargarSemana();
+
+  </script>
+</body>
+</html>

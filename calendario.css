@@ -1,0 +1,147 @@
+
+
+/* Estilos para el contenedor del calendario */
+#calendar-container {
+    margin-top: 100px; /* Deja un espacio arriba */
+    width: 100%; /* El contenedor ocupa todo el ancho disponible */
+    max-width: 800px; /* El ancho máximo es de 800px */
+    background-color: #f0f8ff; /* Fondo de color azul claro */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+/* Estilos para la barra de navegación del mes (mes anterior, actual, siguiente) */
+#month-navigation {
+    display: flex; /* Usa Flexbox para alinear los botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    align-items: center; /* Alinea los botones verticalmente */
+    gap: 10px; /* Espaciado entre los botones */
+    font-size: 20px; /* Tamaño de la fuente */
+    font-weight: bold; /* Pone el texto en negrita */
+    margin-bottom: 15px; /* Deja un espacio debajo */
+    background-color: #cce7ff; /* Fondo azul claro */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    position: relative; /* Permite que las flechas se queden en su lugar */
+}
+
+/* Estilos para los botones de la barra de navegación del mes */
+#month-navigation button {
+    background: none; /* Sin fondo por defecto */
+    border: none; /* Sin borde */
+    font-size: 18px; /* Tamaño de la fuente de las flechas */
+    cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+    padding: 0 10px; /* Añade espaciado en los lados */
+    font-weight: bold; /* Pone el texto en negrita */
+    color: #174675; /* Color azul para el texto */
+}
+
+/* Efecto al pasar el cursor sobre los botones de navegación del mes */
+#month-navigation button:hover {
+    color: #e68223; /* Cambia el color al naranja */
+}
+
+/* Estilos para el texto del mes/año en el centro de la barra de navegación */
+#month-navigation span {
+    flex-grow: 1; /* Hace que el texto ocupe el espacio restante */
+    text-align: center; /* Centra el texto */
+}
+/* Estilos para el calendario */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+#calendar .weekday {
+    font-weight: bold; /* Pone el texto en negrita */
+    text-align: center; /* Centra el texto */
+    padding: 11px 0; /* Altura compacta */
+    background-color: #cce7ff; /* Fondo azul claro */
+    border: 1px solid #ddd; /* Borde sutil */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Estilos para los días del mes */
+#calendar .day {
+    padding: 16px 0; /* Altura compacta */
+    text-align: center; /* Centra el texto */
+    border: 1px solid #ddd
+}
+
+.dia-ocupado {
+  background-color: #ff9999 !important;
+  color: white;
+  border: 2px solid #cc0000;
+}
+/* ======= MODAL DE RESERVA ======= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 2px solid #174675;
+  width: 320px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  font-family: Arial, sans-serif;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: #174675;
+}
+
+.modal-content label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content input,
+.modal-content button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.modal-content button {
+  background-color: #174675;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #0e3558;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #174675;
+  cursor: pointer;
+}

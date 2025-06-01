@@ -1,0 +1,86 @@
+header {
+    background-color: #00125A;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #fff;
+    }
+    .card-datos {
+        max-width: 1000px;
+        margin: 2rem auto;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    h2, h3 {
+        color: #00125A;
+        border-bottom: 2px solid #f7931e;
+        padding-bottom: 0.3rem;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 1rem;
+    }
+    th {
+        background-color: #00125A;
+        color: white;
+        text-align: left;
+    }
+    td, th {
+        border: 1px solid #ccc;
+        padding: 0.5rem;
+    }
+    select, button {
+        margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid #00125A;
+        border-radius: 5px;
+    }
+    button {
+        background-color: #00125A;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+       background-color: darkorange;
+    }
+    .success { color: green; }
+    .error { color: red; }
+    label { margin-right: 1rem; }
+
+    .filtros-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filtros-contenedor form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-pdf {
+ margin-top: 1rem;
+        padding: 0.5rem 1rem;
+        border: 2px solid #00125A;
+        border-radius: 5px;
+  background-color: navy;
+  color: white;
+  cursor: pointer;
+}
+.btn-pdf:hover {
+  background-color: darkorange;
+}

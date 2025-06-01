@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel del Alumno</title>
+  <link rel="stylesheet" href="panel_general_alumno.css">
+</head>
+<body>
+  <header>
+    <h1>Bienvenido al Panel de Horarios</h1>
+  </header>
+  <div class="container">
+    <nav>
+      <img src="logo.png" alt="Logo UICSLP" class="logo">
+      <h2>Panel Alumno</h2>
+      <ul>
+        <?php
+        include('conexion.php');
+        
+        // Carrera específica (puedes cambiarla por sesión o GET si quieres)
+        $carrera = "Informática Administrativa";
+
+        $stmt = $conn->prepare("
+            SELECT g.id_grupo, g.nombre_grupo, g.id_carrera, g.id_semestre
+            FROM grupos g
+            INNER JOIN carreras c ON g.id_carrera = c.id_carrera
+            WHERE c.nombre_carrera = ?
+        ");
+        $stmt->bind_param("s", $carrera);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+          while ($row = $result->fetch_assoc()) {
+            $id_grupo = $row['id_grupo'];
+            $nombre_grupo = $row['nombre_grupo'];
+            $id_semestre = $row['id_semestre'];
+            echo "<li><a href='ver_Horario_A.php?grupo=$id_grupo'>Grupo: $nombre_grupo (Semestre $id_semestre)</a></li>";
+          }
+        } else {
+          echo "<li>No se encontraron grupos para esta carrera.</li>";
+        }
+
+        $stmt->close();
+        ?>
+      </ul>
+    </nav>
+    <main>
+      <!-- Contenido principal si es necesario -->
+    </main>
+  </div>
+  <footer>
+    <p>&copy; 2025 Universidad Intercultural de Tamuín, SLP</p>
+  </footer>
+</body>
+</html>

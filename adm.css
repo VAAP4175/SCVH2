@@ -1,0 +1,71 @@
+
+.contenedor2 h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.descargar {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.acciones {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.editar {
+    background-color: #38a169;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.eliminar {
+    background-color: #e53e3e;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logout {
+    text-align: center;
+}
+
+.logout button {
+    padding: 12px 20px;
+    font-size: 15px;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout button:hover {
+    background-color: #2c5282;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .acciones {
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    th, td {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+

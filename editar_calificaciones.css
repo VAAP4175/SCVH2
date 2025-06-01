@@ -1,0 +1,137 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.contenedor {
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Encabezado */
+h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* Buscador */
+.buscador {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+}
+
+th {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: bold;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Input para calificaciones */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Acciones */
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Botón principal */
+button {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2c5282;
+}
+
+/* Enlace volver */
+.volver {
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    color: #1e3a8a;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.volver:hover {
+    background-color: #e2e8f0;
+    border-color: #a0aec0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .acciones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    button,
+    .volver {
+        width: 100%;
+        text-align: center;
+    }
+}

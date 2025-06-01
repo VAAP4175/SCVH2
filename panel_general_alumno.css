@@ -1,0 +1,267 @@
+/* Reset general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: #030059;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Contenedor principal */
+.container {
+  display: flex;
+  flex: 1;
+}
+
+/* Menú lateral */
+nav {
+  width: 240px;
+ background-color: #f29e38;
+  color: white;
+  padding: 20px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav .logo {
+  width: 100px;
+  height: auto;
+}
+
+nav h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+nav li {
+  margin: 20px 0;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  background-color: #030059;
+  display: block;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #b76e01;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  padding: 40px;
+  background-color: #ffffff;
+  min-height: calc(100vh - 120px);
+}
+
+main h2 {
+  color: #da790a;
+  margin-bottom: 20px;
+}
+
+main p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #030059;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  nav {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    position: static;
+  }
+
+  nav h2, nav .logo {
+    display: none; /* ocultar texto y logo para ahorrar espacio */
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+  }
+
+  nav li {
+    margin: 5px;
+  }
+
+  nav a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  header, footer {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* Tarjeta principal */
+.card-datos {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Encabezado del nombre */
+.card-datos h2 {
+  color: #da790a;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Bloques internos */
+.datos-bloque {
+  margin-bottom: 30px;
+}
+
+.datos-bloque h3 {
+  color: #030059;
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #da790a;
+  padding-bottom: 5px;
+}
+
+.datos-bloque p {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #333;
+}
+
+.alerta-exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Botón */
+button {
+  display: block;
+  padding: 12px 30px;
+  background-color: #da790a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 30px auto 0;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #b76e01;
+}
+
+/* Campos bloqueados */
+input[disabled] {
+  background-color: #f2f2f2;
+  cursor: not-allowed;
+}
+
+/* Estilo para formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="time"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #030059;
+  box-shadow: 0 0 0 2px rgba(3, 0, 89, 0.1);
+}

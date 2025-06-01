@@ -1,0 +1,128 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f6fa;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    padding-top: 20px;
+}
+
+.logo-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background-color: #f29e38;
+    border-radius: 4px;
+}
+
+.logo {
+    width: 90px;
+    height: auto;
+    transition: transform 1s ease-in-out;
+}
+
+.logo:hover {
+    animation: girar 2s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    max-width: 700px;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 15px;
+}
+
+th {
+    background-color: #1e3a8a;
+    color: white;
+    font-weight: bold;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+hr {
+    width: 100%;
+    max-width: 700px;
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.botones-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.botones-acciones button {
+    padding: 10px 20px;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    min-width: 160px;
+}
+
+.botones-acciones button:hover {
+    background-color: #2c5282;
+}
